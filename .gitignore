@@ -1,0 +1,15 @@
+# IntelliJ files
+/.idea/
+
+# Node's dependencies
+/node_modules/
+
+# Parcel's internal cache
+/.parcel-cache/
+/.cache/
+
+# Parcel's bundled output
+/dist/
+
+# production
+/build
