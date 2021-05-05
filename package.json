@@ -4,7 +4,9 @@
   "repository": "https://github.com/epam/near-nftchecker.git",
   "private": true,
   "scripts": {
-    "dev:local-testnet": "cross-env NEAR_NETWORKS=[{\\\"name\\\":\\\"testnet\\\",\\\"explorerLink\\\":\\\"http://localhost:3000/\\\",\\\"aliases\\\":[\\\"localhost:3000\\\",\\\"127.0.0.1:3000\\\"],\\\"nearWalletProfilePrefix\\\":\\\"https://wallet.testnet.near.org/profile\\\"}] parcel src/index.html --no-cache --port 3000"
+    "dev:local-testnet": "cross-env NEAR_NETWORKS=[{\\\"name\\\":\\\"testnet\\\",\\\"explorerLink\\\":\\\"http://localhost:3000/\\\",\\\"aliases\\\":[\\\"localhost:3000\\\",\\\"127.0.0.1:3000\\\"],\\\"nearWalletProfilePrefix\\\":\\\"https://wallet.testnet.near.org/profile\\\"}] parcel src/index.html --no-cache --port 3000",
+    "deploy:web": "gh-pages --dist dist",
+    "build:web": "parcel build src/index.html --public-url ./"
   },
   "dependencies": {
     "bootstrap": "^4.6.0",
