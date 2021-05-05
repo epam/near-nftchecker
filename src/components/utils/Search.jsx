@@ -12,10 +12,10 @@ const Search = () => {
   return (
     <form onSubmit={handleSearch}>
       <Row noGutters>
-        <FormLabel>NFT Contract *</FormLabel>
+        <FormLabel>NFT Contract Address *</FormLabel>
         <InputGroup className='search-box'>
           <FormControl
-            placeholder='Enter NFT Contract Account ID'
+            placeholder='Enter NFT contract address (account ID)'
             aria-label='NFT Contract'
             aria-describedby='nft-contract'
             autoCorrect='off'
@@ -40,7 +40,7 @@ const Search = () => {
       </Row>
       <Row className='search-row'>
         <Button type='submit' variant='info' className='button-search'>
-          Inspect
+          Check it
         </Button>
       </Row>
       <style jsx global>{`
