@@ -26,7 +26,7 @@ jobs:
     - uses: actions/download-artifact@v2
 
     - run: yarn install --frozen-lockfile
-    - run: yarn build:web
+    - run: TESTNET_SEED_PHRASE=secrets.TESTNET_SEED_PHRASE yarn build:web
     - run: git remote set-url origin https://git:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git
     - run: yarn gh-pages-clean
     - run: yarn deploy:web --user "Github Workflow Bot <noemail@epam.github.io>"
