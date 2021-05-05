@@ -13,3 +13,6 @@
 
 # production
 /build
+
+# environment variables
+.env

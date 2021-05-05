@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Button, FormControl, InputGroup, Row, FormLabel } from 'react-bootstrap';
 
-const Search = () => {
-  const handleSearch = async (e) => {
-    e.preventDefault();
+const Search = ({ check }) => {
+  const [contractId, setContractId] = useState('');
+  const [tokenId, setTokenId] = useState('');
 
-    // eslint-disable-next-line no-console
-    console.log('form submitted');
+  const handleSearch = async (event) => {
+    event.preventDefault();
+
+    check(contractId, tokenId);
+  };
+
+  const handleContractIdValueChange = (event) => {
+    if (event) {
+      const value = event.target !== null ? event.target.value : '';
+      setContractId(value);
+    }
+  };
+
+  const handleTokenIdValueChange = (event) => {
+    if (event) {
+      const value = event.target !== null ? event.target.value : '';
+      setTokenId(value);
+    }
   };
 
   return (
@@ -21,6 +38,7 @@ const Search = () => {
             autoCorrect='off'
             autoCapitalize='none'
             className='search-field'
+            onChange={handleContractIdValueChange}
             required
           />
         </InputGroup>
@@ -35,6 +53,7 @@ const Search = () => {
             autoCorrect='off'
             autoCapitalize='none'
             className='search-field'
+            onChange={handleTokenIdValueChange}
           />
         </InputGroup>
       </Row>
@@ -49,8 +68,7 @@ const Search = () => {
           width: 740px;
           max-width: 100%;
           height: 49px;
-          margin: auto;
-          margin-bottom: 10px;
+          margin: auto auto 10px;
           border-radius: 8px;
         }
 
@@ -58,8 +76,7 @@ const Search = () => {
           width: 740px;
           max-width: 100%;
           height: 49px;
-          margin: auto;
-          margin-top: 25px;
+          margin: 25px auto auto;
         }
 
         .search-box.compact {
@@ -196,6 +213,10 @@ const Search = () => {
       `}</style>
     </form>
   );
+};
+
+Search.propTypes = {
+  check: PropTypes.func,
 };
 
 export default Search;
