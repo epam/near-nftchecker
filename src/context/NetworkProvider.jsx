@@ -22,8 +22,6 @@ NetworkProvider.propTypes = {
   children: PropTypes.array,
 };
 
-const NetworkConsumer = NetworkContext.Consumer;
-
-export { NetworkConsumer, NetworkContext };
+export { NetworkContext };
 
 export default NetworkProvider;
