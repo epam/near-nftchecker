@@ -18,7 +18,7 @@ const DashboardMetadata = ({ isLoading, metadata = {} }) => (
           <Col xs='6' md='12' key={index}>
             <LongCardCell
               title={<Term title={key} text={nftContractMetadataStandard[key].specsDef} />}
-              text={value}
+              text={key === 'icon' ? <img src={value} alt='contract icon' /> : value}
               href={nftContractMetadataStandard[key]?.isUri && value}
             />
           </Col>
