@@ -36,7 +36,15 @@ const DashboardMetadata = ({ isLoading, metadata = {} }) => {
               <Col xs='6' md='12' key={index}>
                 <LongCardCell
                   title={<Term title={key} text={nftContractMetadataStandard[key].specsDef} />}
-                  text={key === 'icon' ? <img src={value} alt='contract icon' /> : value}
+                  text={
+                    key === 'icon' ? (
+                      <div className='card-cell-contract-icon-container text-center p-3'>
+                        <img className='card-cell-contract-icon' src={value} alt='contract icon' />
+                      </div>
+                    ) : (
+                      value
+                    )
+                  }
                   href={nftContractMetadataStandard[key]?.isUri && value}
                 />
               </Col>
@@ -79,6 +87,15 @@ const DashboardMetadata = ({ isLoading, metadata = {} }) => {
       <style jsx global>{`
         .dashboard-validating-nodes-count .card-cell-text {
           color: #00c08b;
+        }
+
+        .card-cell-contract-icon {
+          max-width: 100px;
+          max-height: 100px;
+        }
+
+        .card-cell-contract-icon-container {
+          background-color: #424957;
         }
       `}</style>
     </DashboardCard>
