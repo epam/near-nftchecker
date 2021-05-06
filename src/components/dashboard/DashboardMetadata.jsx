@@ -8,6 +8,8 @@ import DashboardCard from '../utils/DashboardCard';
 import LongCardCell from '../utils/LongCardCell';
 import Term from '../utils/Term';
 
+import { nftContractMetadataStandard } from '../../constants/nftContract';
+
 const DashboardMetadata = ({ isLoading, metadata = {} }) => (
   <DashboardCard icon={IconContract} title='Contract Metadata' className='node-card' isLoading={isLoading}>
     <Row noGutters>
@@ -15,15 +17,9 @@ const DashboardMetadata = ({ isLoading, metadata = {} }) => (
         return (
           <Col xs='6' md='12' key={index}>
             <LongCardCell
-              title={
-                <Term
-                  title={key}
-                  text={'Total number of online nodes. '}
-                  // href={'https://docs.near.org/docs/validator/staking#run-the-node'}
-                />
-              }
+              title={<Term title={key} text={nftContractMetadataStandard[key].specsDef} />}
               text={value}
-              // href={'/nodes/online-nodes'}
+              href={nftContractMetadataStandard[key]?.isUri && value}
             />
           </Col>
         );
