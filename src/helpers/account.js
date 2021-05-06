@@ -1,7 +1,7 @@
 import { connect, KeyPair, keyStores } from 'near-api-js';
 import { parseSeedPhrase } from 'near-seed-phrase';
 
-import { getConfig } from '../../config';
+import { getConfig } from '../config';
 import { memoize } from './function';
 
 export const getMainAccount = memoize(async (networkName) => {

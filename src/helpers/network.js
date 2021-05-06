@@ -1,4 +1,4 @@
-import { publicRuntimeConfig } from '../../runtime-config';
+import { publicRuntimeConfig } from '../runtime-config';
 
 const { nearNetworks, nearNetworkAliases } = publicRuntimeConfig;
 
