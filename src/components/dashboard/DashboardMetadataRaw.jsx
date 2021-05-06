@@ -16,7 +16,12 @@ const COLLAPSE_ARGS_OPTIONS = {
 
 const DashboardMetadataRaw = ({ className, metadataRaw, isLoading }) => {
   return (
-    <DashboardCard className={`block-card ${className || ''}`} icon={IconDContract} title='Raw' isLoading={isLoading}>
+    <DashboardCard
+      className={`block-card ${className || ''}`}
+      icon={IconDContract}
+      title='nft_metadata'
+      isLoading={isLoading}
+    >
       <Row noGutters>
         <Col xs='6' md='12'>
           <CodePreview collapseOptions={COLLAPSE_ARGS_OPTIONS} value={metadataRaw} />

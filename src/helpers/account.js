@@ -1,6 +1,7 @@
 import { connect, KeyPair, keyStores } from 'near-api-js';
 import { parseSeedPhrase } from 'near-seed-phrase';
 
+import { getConfig } from '../config';
 import { memoize } from './function';
 
 export const getMainAccount = memoize(async (networkName) => {
@@ -30,18 +31,9 @@ export const getMainAccount = memoize(async (networkName) => {
 
   const keyStore = new keyStores.InMemoryKeyStore();
 
-  // todo: getConfig
-  const config = {
-    networkId: 'testnet',
-    keyStore,
-    nodeUrl: 'https://rpc.testnet.near.org',
-    walletUrl: 'https://wallet.testnet.near.org',
-    helperUrl: 'https://helper.testnet.near.org',
-    explorerUrl: 'https://explorer.testnet.near.org',
-  };
+  const config = getConfig(networkName, keyStore);
 
-  // await keyStore.setKey(todo: config.networkId, masterAccount, KeyPair.fromString(seedPhraseKeyPair.secretKey));
-  await keyStore.setKey('testnet', mainAccountId, KeyPair.fromString(seedPhraseKeyPair.secretKey));
+  await keyStore.setKey(networkName, mainAccountId, KeyPair.fromString(seedPhraseKeyPair.secretKey));
 
   const near = await connect(config);
 
