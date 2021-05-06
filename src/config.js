@@ -1,4 +1,4 @@
-function getConfig(networkName, keyStore) {
+export const getConfig = (networkName, keyStore) => {
   switch (networkName) {
     case 'mainnet':
       return {
@@ -35,6 +35,4 @@ function getConfig(networkName, keyStore) {
     default:
       throw Error(`Unconfigured environment '${networkName}'. Can be configured in src/config.js.`);
   }
-}
-
-module.exports = getConfig;
+};
