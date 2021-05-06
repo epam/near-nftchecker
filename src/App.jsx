@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import ExplorerBG from 'url:./static/images/explorer-bg.svg';
 
 import { getNearNetwork } from './helpers/network';
-import { publicRuntimeConfig } from '../config';
+import { publicRuntimeConfig } from '../runtime-config';
 
 import NetworkProvider from './context/NetworkProvider';
 
