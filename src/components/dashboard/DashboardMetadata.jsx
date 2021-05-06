@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row } from 'react-bootstrap';
+import DOMPurify from 'dompurify';
 
 import IconContract from 'url:../../static/images/icon-contract.svg';
 
@@ -13,17 +14,19 @@ import { nftContractMetadataStandard } from '../../constants/nftContract';
 const DashboardMetadata = ({ isLoading, metadata = {} }) => (
   <DashboardCard icon={IconContract} title='Contract Metadata' className='node-card' isLoading={isLoading}>
     <Row noGutters>
-      {Object.entries(metadata || {}).map(([key, value], index) => {
-        return (
-          <Col xs='6' md='12' key={index}>
-            <LongCardCell
-              title={<Term title={key} text={nftContractMetadataStandard[key].specsDef} />}
-              text={key === 'icon' ? <img src={value} alt='contract icon' /> : value}
-              href={nftContractMetadataStandard[key]?.isUri && value}
-            />
-          </Col>
-        );
-      })}
+      {Object.entries(metadata || {})
+        .map(([key, value]) => [DOMPurify.sanitize(key), DOMPurify.sanitize(value)])
+        .map(([key, value], index) => {
+          return (
+            <Col xs='6' md='12' key={index}>
+              <LongCardCell
+                title={<Term title={key} text={nftContractMetadataStandard[key].specsDef} />}
+                text={key === 'icon' ? <img src={value} alt='contract icon' /> : value}
+                href={nftContractMetadataStandard[key]?.isUri && value}
+              />
+            </Col>
+          );
+        })}
     </Row>
     <style jsx global>{`
       .dashboard-validating-nodes-count .card-cell-text {
