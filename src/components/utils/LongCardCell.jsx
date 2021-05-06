@@ -98,8 +98,8 @@ const LongCardCell = ({ title, text, href, className }) => {
 };
 
 LongCardCell.propTypes = {
-  title: PropTypes.oneOf([PropTypes.element, PropTypes.string]).isRequired,
-  text: PropTypes.oneOf([PropTypes.element, PropTypes.string]),
+  title: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  text: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
   href: PropTypes.string,
   className: PropTypes.string,
 };

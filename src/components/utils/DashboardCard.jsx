@@ -2,6 +2,8 @@ import React from 'react';
 import { Col, Row, Spinner } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
+import { ReactChildrenType } from '../../../types/ReactChildrenTypes';
+
 const DashboardCard = ({ className, icon, title, headerRight, children, isLoading }) => (
   <Row noGutters className={`dashboard-card ${className || ''}`}>
     <Col xs='12'>
@@ -68,7 +70,7 @@ DashboardCard.propTypes = {
   icon: PropTypes.string,
   title: PropTypes.string,
   headerRight: PropTypes.element,
-  children: PropTypes.object,
+  children: ReactChildrenType,
   isLoading: PropTypes.bool,
 };
 
