@@ -9,7 +9,7 @@ import LongCardCell from '../utils/LongCardCell';
 import Term from '../utils/Term';
 
 const DashboardMetadata = ({ isLoading, metadata = {} }) => (
-  <DashboardCard icon={IconContract} title='Nodes' className='node-card' isLoading={isLoading}>
+  <DashboardCard icon={IconContract} title='Contract Metadata' className='node-card' isLoading={isLoading}>
     <Row noGutters>
       {Object.entries(metadata || {}).map(([key, value], index) => {
         return (
