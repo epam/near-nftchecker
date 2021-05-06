@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { Contract } from 'near-api-js';
 
 import { getMainAccount } from '../helpers/account';
-import { nftContractStandardMethods } from '../constants/nftContractStandardMethods';
+import { nftContractMethodsStandard } from '../constants/nftContract';
 
 import DashboardMetadataRaw from './dashboard/DashboardMetadataRaw';
 import DashboardMetadata from './dashboard/DashboardMetadata';
@@ -29,7 +29,7 @@ const Dashboard = () => {
     const mainAccount = await getMainAccount(currentNearNetwork.name);
 
     const contract = new Contract(mainAccount, contractId, {
-      ...nftContractStandardMethods,
+      ...nftContractMethodsStandard,
       sender: mainAccount,
     });
 
