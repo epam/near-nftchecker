@@ -7,6 +7,7 @@ import { nftContractMethodsStandard } from '../constants/nftContract';
 
 import DashboardMetadataRaw from './dashboard/DashboardMetadataRaw';
 import DashboardMetadata from './dashboard/DashboardMetadata';
+import DashboardError from './dashboard/DashboardError';
 import Search from './utils/Search';
 
 import { NetworkContext } from '../context/NetworkProvider';
@@ -60,7 +61,11 @@ const Dashboard = () => {
           <Col xs='12'>
             <Row className='card-area' noGutters>
               <Col xs='12' md='6' className='mt-4'>
-                <DashboardMetadata metadata={contractMetadata || errorObject} isLoading={isContractMetadataLoading} />
+                {errorObject ? (
+                  <DashboardError errorObject={errorObject} />
+                ) : (
+                  <DashboardMetadata metadata={contractMetadata || errorObject} isLoading={isContractMetadataLoading} />
+                )}
               </Col>
               <Col xs='12' md='6' className='mt-4'>
                 <DashboardMetadataRaw
